@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content class="white-bg">
   <ion-grid class="add-item-page">
     <h4 class="title-add-page"><img [src]="backImg" alt="" (click)="dismiss(null)"> <span>{{params?.pageTitle}}</span></h4>
     <form class="add-form" [formGroup]="form">
@@ -21,8 +21,14 @@
           <ion-input [formControlName]="item.key" [id]="item.key" [type]="item.type" [required]="item.required ? true : null"></ion-input>
         </ion-item>
 
+        <ion-item *ngIf="item.controlType == 'address'">
+          <ion-label position="stacked" [attr.for]="item.key">{{item.label}}</ion-label>
+          <input class="w-100 custom-input" ngx-google-places-autocomplete [options]='options' [id]="item.key" [type]="item.type" [required]="item.required ? true : null" #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event, item.key)"/>
+          <!-- <ion-input [formControlName]="item.key" ></ion-input> -->
+        </ion-item>
+
       </ion-row>
-      <ion-button class="btn-bottom" expand="full" color="primary" (click)="addItem()">Enregistrer</ion-button>
+      <ion-button class="btn-bottom" expand="full" shape="round" color="primary" (click)="addItem()">Enregistrer</ion-button>
     </form>
   </ion-grid>
 </ion-content>

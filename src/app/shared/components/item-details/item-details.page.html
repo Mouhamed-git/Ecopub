@@ -1,0 +1,173 @@
+<ion-content class="details-page-item list-item-page " *ngIf="data?.url != 'publicities' && data?.url != 'users'">
+  <ion-grid class="header-section">
+    <ion-list>
+      <ion-list-header class="pl-18 pr-18">
+        <ion-icon class="text-white filter-icon" name="arrow-back" (click)="goBack()"></ion-icon>
+        <ion-label class="text-white page-title">{{data?.component}}</ion-label>
+      </ion-list-header>
+    </ion-list>
+  </ion-grid>
+  <ion-grid class="header-grid" *ngIf="data">
+    <ion-card>
+     <ion-card-header class="border-top text-center">
+       <ion-card-title>{{data?.name}}</ion-card-title>
+     </ion-card-header>
+     <ion-card-content>
+       <ion-row *ngIf="data?.address">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             Adresse
+           </ion-label>
+           <ion-label class="value-item">
+             {{data?.address}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+       <ion-row *ngIf="data?.phone">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             Téléphone
+           </ion-label>
+           <ion-label class="value-item">
+             {{data?.phone}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+       <ion-row *ngIf="data?.email">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             Email
+           </ion-label>
+           <ion-label class="value-item">
+             {{data?.email}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+       <ion-row *ngIf="data?.referrer">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             Référant
+           </ion-label>
+           <ion-label class="value-item">
+             {{data?.referrer}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+     </ion-card-content>
+    </ion-card>
+  </ion-grid>
+  <ion-list *ngIf="data?.data?.publicities?.length > 0">
+     <ion-list-header>
+      Publicitiés
+     </ion-list-header>
+     <ion-item *ngFor="let item of data?.data?.publicities">
+         <ion-avatar slot="start">
+           <img [src]="pubImg">
+         </ion-avatar>
+         <ion-label>
+           <h2>{{item?.campaign_name}}</h2>
+           <h3></h3>
+           <p>Du {{item?.date_start | date:'mediumDate'}}  au {{item?.date_end | date:'mediumDate'}} </p>
+         </ion-label>
+       </ion-item>
+  </ion-list>
+  <ion-card *ngIf="data?.data?.publicities?.length == 0">
+    <ion-card-header>
+      <ion-card-subtitle>{{data?.name}} n'a pas encore de Publicitiés</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-icon name="add-circle" color="primary"></ion-icon>
+      <ion-label>Ajouter</ion-label>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-content class="details-page-item list-item-page " *ngIf="data?.url == 'publicities'">
+  <ion-grid class="header-section">
+    <ion-list>
+      <ion-list-header class="pl-18 pr-18">
+        <ion-icon class="text-white filter-icon" name="arrow-back" (click)="goBack()"></ion-icon>
+        <ion-label class="text-white page-title">{{data?.component}}</ion-label>
+      </ion-list-header>
+    </ion-list>
+  </ion-grid>
+  <ion-grid class="header-grid" *ngIf="data">
+    <ion-card>
+     <ion-card-header class="border-top text-center">
+       <ion-card-title>{{data?.campaign_name}}</ion-card-title>
+     </ion-card-header>
+     <ion-card-content>
+       <ion-row *ngIf="data?.date_start">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             Date de début
+           </ion-label>
+           <ion-label class="value-item">
+             {{data?.date_start | date:'mediumDate'}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+       <ion-row *ngIf="data?.date_end">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             Date de fin
+           </ion-label>
+           <ion-label class="value-item">
+             {{data?.date_end | date:'mediumDate'}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+       <ion-row *ngIf="data?.data?.clients">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             Client
+           </ion-label>
+           <ion-label class="value-item">
+             {{data?.data?.clients?.name}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+       <ion-row *ngIf="data?.data?.clients">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             Téléphone du client
+           </ion-label>
+           <ion-label class="value-item">
+             {{data?.data?.clients?.phone}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+     </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>
+
+<ion-content class="details-page-item list-item-page " *ngIf="data?.url == 'users'">
+  <ion-grid class="header-section">
+    <ion-list>
+      <ion-list-header class="pl-18 pr-18">
+        <ion-icon class="text-white filter-icon" name="arrow-back" (click)="goBack()"></ion-icon>
+        <ion-label class="text-white page-title">{{data?.component}}</ion-label>
+      </ion-list-header>
+    </ion-list>
+  </ion-grid>
+  <ion-grid class="header-grid" *ngIf="data">
+    <ion-card>
+     <ion-card-header class="border-top text-center">
+       <ion-card-title>{{data?.name}}</ion-card-title>
+     </ion-card-header>
+     <ion-card-content>
+       <ion-row *ngFor="let item of data.head; let i = index">
+         <ion-item class="w-100" lines="none">
+           <ion-label slot="start">
+             {{item}}
+           </ion-label>
+           <ion-label class="value-item">
+             {{data[data.field[i]]}}
+           </ion-label>
+         </ion-item>
+       </ion-row>
+     </ion-card-content>
+    </ion-card>
+  </ion-grid>
+</ion-content>

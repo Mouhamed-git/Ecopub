@@ -43,15 +43,17 @@
 }
 
 .page-home{
+
   padding-bottom: 100px;
   .first-card-section{
     margin: 20px;
-    -webkit-box-shadow: 0px 29px 21px 0px rgba(218,231,240,1);
-    -moz-box-shadow: 0px 29px 21px 0px rgba(218,231,240,1);
+   -webkit-box-shadow: 0px 29px 21px 0px rgba(218,231,240,1);
+   -moz-box-shadow: 0px 29px 21px 0px rgba(218,231,240,1);
     box-shadow: 0px 29px 21px 0px rgba(218,231,240,1);
     border-radius: 8px;
     margin-top: -45px;
-    background: #fff;
+    background: #0F8E38;
+    color: #fff;
     .head-card{
       border-bottom: 1px solid #ccc;
       padding: 2px 5px;
@@ -59,11 +61,7 @@
     }
   }
   .header-section{
-    height: 180px;
-    border-bottom-left-radius: 23px;
-    border-bottom-right-radius: 23px;
-    background: -webkit-gradient(to bottom, #008a37bd, #a2f754b5);
-    background: linear-gradient(to bottom, #008a37bd, #a2f754b5);
+    height: 200px;
   }
 
   .header-section ion-icon{
@@ -98,8 +96,7 @@
   }
   .sliding-item-elm{
     border-radius: 8px;
-    background: -webkit-linear-gradient(to bottom, #008a37bd, #a2f754b5);
-    background: linear-gradient(to bottom, #008a37bd, #a2f754b5);
+    background: #0F8E38;
     padding: 15px;
   }
   .slider-section{
@@ -133,4 +130,9 @@
   background: #fff;
   top: auto !important;
   z-index: 9999;
+}
+
+.page-home{
+  background-image: url("../../assets/images/design.png");
+  background-size: 100%;
 }
