@@ -1,0 +1,20 @@
+.details-page-item{
+  .border-top{
+    border-top:  4px solid #0F8E38;
+  }
+  .value-item{
+    text-align: right;
+    font-weight: 600;
+  }
+  ion-item ion-label:first-child{
+    margin-right: 0;
+  }
+  .header-grid ion-card{
+    background: #fff;
+    margin-top: 55px;
+    border-radius: 15px;
+  }
+  .header-section{
+    height: 80px;
+  }
+}
